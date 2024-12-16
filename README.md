@@ -17,6 +17,10 @@ No database, no server - just pure HTML, CSS, and JavaScript.
 
 The app uses a simple JSON file to store location data, making it extremely portable and easy to maintain. Just update the JSON file to update the search data - no database shenanigans or backend sorcery required.
 
+## License
+
+This project is completely free to use, modify, and redistribute. No attribution required - feel free to take the entire project or any parts of the code and use them however you like.
+
 ## Hosting
 
 Can be hosted on any static web hosting service (GitHub Pages, Netlify, etc.) or embedded into Google Sites using an iframe.
