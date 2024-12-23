@@ -375,6 +375,22 @@ input:checked + .slider:before {
     cursor: pointer;
 }
 
+.theme-button {
+    background-color: var(--button-bg);
+    border: 1px solid var(--button-bg);
+    border-radius: 4px;
+    color: var(--button-text);
+    font-size: 14px;
+    padding: 8px 16px;
+    cursor: pointer;
+    margin: 4px 2px;
+    transition: background-color 0.2s;
+}
+
+.theme-button:hover {
+    background-color: var(--button-hover);
+}
+
 /* Mobile Responsive Styles */
 @media screen and (max-width: 768px) {
     .logo-container h1 {
