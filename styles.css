@@ -251,8 +251,18 @@ input:checked + .slider:before {
     margin-top: 15px;
 }
 
+.center-table {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+    width: 100vw; /* Full viewport width */
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
 .search-results {
-    margin-top: 20px;
     width: 100%;
     display: flex;
     justify-content: center; /* Center the table horizontally */
