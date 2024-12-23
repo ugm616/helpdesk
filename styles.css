@@ -263,6 +263,7 @@ input:checked + .slider:before {
 }
 
 .search-results {
+    margin-top: 20px;
     width: 100%;
     display: flex;
     justify-content: center; /* Center the table horizontally */
