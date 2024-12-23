@@ -296,7 +296,12 @@ input:checked + .slider:before {
 #howToUseButton {
     display: block;
     margin: 20px auto;
-    border: 1px solid #0092FF;
+    border: none; /* Remove the border */
+}
+
+#howToUseButton:focus {
+    border: 1px solid #0092FF; /* Add the blue border on focus */
+    outline: none; /* Remove the default outline */
 }
 
 .popup-modal {
