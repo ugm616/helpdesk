@@ -138,6 +138,33 @@ document.addEventListener('DOMContentLoaded', () => {
         clearButton.style.display = searchInput.value.length > 0 ? 'flex' : 'none';
     };
 
+document.addEventListener("DOMContentLoaded", () => {
+    const lightModeButton = document.getElementById("lightModeButton");
+    const darkModeButton = document.getElementById("darkModeButton");
+
+    lightModeButton.addEventListener("click", () => {
+        document.documentElement.setAttribute("data-theme", "light");
+        lightModeButton.style.display = "none";
+        darkModeButton.style.display = "inline-block";
+    });
+
+    darkModeButton.addEventListener("click", () => {
+        document.documentElement.setAttribute("data-theme", "dark");
+        darkModeButton.style.display = "none";
+        lightModeButton.style.display = "inline-block";
+    });
+
+    // Check the current theme and set the button visibility
+    const currentTheme = document.documentElement.getAttribute("data-theme");
+    if (currentTheme === "dark") {
+        darkModeButton.style.display = "inline-block";
+        lightModeButton.style.display = "none";
+    } else {
+        lightModeButton.style.display = "inline-block";
+        darkModeButton.style.display = "none";
+    }
+});
+    
     // Clear button click handler
     clearButton.addEventListener('click', () => {
         searchInput.value = '';
