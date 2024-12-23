@@ -48,21 +48,27 @@
                 <button class="search-button">Location Finder</button>
                 <button class="search-button">Switchboard</button>
             </div> -->
-            <button class="how-to-use-button" id="howToUseButton">How to Use</button>
-                <div id="modal" class="modal">
-                    <div class="modal-content">
-                        <span class="close" id="closeModal">&times;</span>
-                        <div class="tips-box">
-                            <div class="tips-header">
-                                <svg class="tips-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
-                                </svg>
-                                <h2>How to Use</h2>
-                            </div>
-                            <p>Search any room number or department, partial or full. E.g. search "security" or "renal" or "AEZ" to find all matching locations.</p><br/><p>Search is currently for the main UHCW building. If you need to search other buildings, please specify.</p>
+
+            <!-- Styled How to Use Button -->
+            <button class="search-button" id="howToUseButton">How to Use</button>
+
+            <!-- Modal -->
+            <div id="modal" class="modal" style="display: none;">
+                <div class="modal-content">
+                    <span class="close" id="closeModal">&times;</span>
+                    <div class="tips-box">
+                        <div class="tips-header">
+                            <svg class="tips-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
+                            </svg>
+                            <h2>How to Use</h2>
                         </div>
+                        <p>Search any room number or department, partial or full. E.g. search "security" or "renal" or "AEZ" to find all matching locations.</p><br/><p>Search is currently for [...]
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
