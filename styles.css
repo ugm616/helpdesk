@@ -51,7 +51,7 @@ body {
 
 .search-container {
     width: 100%;
-    max-width: 584px;
+    max-width: 1200px; /* Increase max-width to allow more space */
     padding: 20px;
 }
 
@@ -76,37 +76,6 @@ body {
 .search-input:focus {
     border-color: #0092FF;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-}
-
-.search-results table {
-    width: 100%;
-    table-layout: fixed; /* Add this property */
-}
-
-.search-results th, .search-results td {
-    white-space: nowrap; /* Ensure text doesn't wrap */
-    overflow: hidden;     /* Hide overflow */
-    text-overflow: ellipsis; /* Add ellipsis for overflow text */
-}
-
-.search-results th:nth-child(1), .search-results td:nth-child(1) {
-    width: 15%; /* Adjust width percentage as needed */
-}
-
-.search-results th:nth-child(2), .search-results td:nth-child(2) {
-    width: 35%; /* Adjust width percentage as needed */
-}
-
-.search-results th:nth-child(3), .search-results td:nth-child(3) {
-    width: 10%; /* Adjust width percentage as needed */
-}
-
-.search-results th:nth-child(4), .search-results td:nth-child(4) {
-    width: 10%; /* Adjust width percentage as needed */
-}
-
-.search-results th:nth-child(5), .search-results td:nth-child(5) {
-    width: 30%; /* Adjust width percentage as needed */
 }
 
 .search-button {
@@ -280,9 +249,8 @@ input:checked + .slider:before {
 
 .search-results {
     margin-top: 20px;
-    width: 110%;
-    margin-left: -5%;
-    margin-right: -5%;
+    width: 100%; /* Ensure full width */
+    overflow-x: auto; /* Allow horizontal scroll if needed */
 }
 
 .search-results table {
@@ -292,6 +260,7 @@ input:checked + .slider:before {
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
     border-radius: 8px;
     overflow: hidden;
+    table-layout: auto; /* Allow table to adjust based on content */
 }
 
 .search-results th,
@@ -299,6 +268,7 @@ input:checked + .slider:before {
     padding: 12px 15px;
     text-align: left;
     border-bottom: 1px solid var(--border-color);
+    white-space: nowrap; /* Prevent text wrapping */
 }
 
 .search-results th {
@@ -403,60 +373,60 @@ input:checked + .slider:before {
     }
 
     .how-to-use-button {
-    background-color: var(--button-bg);
-    border: 1px solid var(--button-bg);
-    border-radius: 4px;
-    color: var(--button-text);
-    font-size: 14px;
-    padding: 8px 16px;
-    cursor: pointer;
-    transition: background-color 0.2s;
-}
+        background-color: var(--button-bg);
+        border: 1px solid var(--button-bg);
+        border-radius: 4px;
+        color: var(--button-text);
+        font-size: 14px;
+        padding: 8px 16px;
+        cursor: pointer;
+        transition: background-color 0.2s;
+    }
 
-.how-to-use-button:hover {
-    background-color: var(--button-hover);
-}
+    .how-to-use-button:hover {
+        background-color: var(--button-hover);
+    }
 
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0,0.4);
-}
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgb(0,0,0);
+        background-color: rgba(0,0,0,0.4);
+    }
 
-.modal-content {
-    background-color: var(--background-color);
-    margin: 15% auto;
-    padding: 20px;
-    border: 1px solid var(--border-color);
-    width: 80%;
-    max-width: 600px;
-    border-radius: 8px;
-    position: relative;
-}
+    .modal-content {
+        background-color: var(--background-color);
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid var(--border-color);
+        width: 80%;
+        max-width: 600px;
+        border-radius: 8px;
+        position: relative;
+    }
 
-.close {
-    color: var(--text-color);
-    position: absolute;
-    right: 10px;
-    top: 10px;
-    font-size: 24px;
-    font-weight: bold;
-    cursor: pointer;
-}
+    .close {
+        color: var(--text-color);
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        font-size: 24px;
+        font-weight: bold;
+        cursor: pointer;
+    }
 
-.close:hover,
-.close:focus {
-    color: red;
-    text-decoration: none;
-    cursor: pointer;
-}
+    .close:hover,
+    .close:focus {
+        color: red;
+        text-decoration: none;
+        cursor: pointer;
+    }
 
     /* Mobile table styles */
     .search-results {
@@ -479,10 +449,7 @@ input:checked + .slider:before {
         margin-bottom: 12px;
         margin-right: 10px;
         margin-left: 10px;
-        background: linear-gradient(to bottom right, 
-            var(--background-color), 
-            color-mix(in srgb, var(--background-color) 97%, var(--primary-color))
-        );
+        background: linear-gradient(to bottom right, var(--background-color), color-mix(in srgb, var(--background-color) 97%, var(--primary-color)));
         padding: 10px;
         border-radius: 8px;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -491,10 +458,7 @@ input:checked + .slider:before {
 
     /* Add a subtle gradient background to cards */
     .search-results tbody tr {
-        background: linear-gradient(to bottom right, 
-            var(--background-color), 
-            color-mix(in srgb, var(--background-color) 97%, var(--primary-color))
-        );
+        background: linear-gradient(to bottom right, var(--background-color), color-mix(in srgb, var(--background-color) 97%, var(--primary-color)));
     }
 
     .search-results td {
