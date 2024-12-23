@@ -101,21 +101,27 @@ function displayResults(results) {
     });
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    const modal = document.getElementById('modal');
-    const btn = document.getElementById('howToUseButton');
-    const span = document.getElementById('closeModal');
+document.addEventListener("DOMContentLoaded", function() {
+    var modal = document.getElementById("modal");
+    var btn = document.getElementById("howToUseButton");
+    var span = document.getElementById("closeModal");
 
+    // Initially hide the modal
+    modal.style.display = "none";
+
+    // When the user clicks the button, open the modal 
     btn.onclick = function() {
         modal.style.display = "block";
     }
 
+    // When the user clicks on <span> (x), close the modal
     span.onclick = function() {
         modal.style.display = "none";
     }
 
+    // When the user clicks anywhere outside of the modal, close it
     window.onclick = function(event) {
-        if (event.target === modal) {
+        if (event.target == modal) {
             modal.style.display = "none";
         }
     }
