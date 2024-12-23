@@ -49,30 +49,6 @@ body {
     min-height: 100vh;
 }
 
-.logo-container h1 {
-    font-size: 90px;
-    margin-bottom: 30px;
-    font-family: 'Product Sans', Arial, sans-serif;
-    font-weight: 400;
-    letter-spacing: -2px;
-}
-
-.blue {
-    color: #4285f4;
-}
-
-.red {
-    color: #ea4335;
-}
-
-.yellow {
-    color: #fbbc05;
-}
-
-.green {
-    color: #34a853;
-}
-
 .search-container {
     width: 100%;
     max-width: 584px;
@@ -98,7 +74,7 @@ body {
 }
 
 .search-input:focus {
-    border-color: #0000FF;
+    border-color: #7777FF;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
