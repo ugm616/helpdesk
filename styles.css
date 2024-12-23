@@ -300,6 +300,8 @@ input:checked + .slider:before {
 .responsive-logo {
     max-width: 50%;
     height: auto;
+    display: block;
+    margin: 0 auto;
 }
 
 /* Mobile Responsive Styles */
