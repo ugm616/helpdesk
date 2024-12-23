@@ -102,9 +102,9 @@ function displayResults(results) {
 }
 
 document.addEventListener("DOMContentLoaded", function() {
-    var modal = document.getElementById("modal");
+    var modal = document.getElementById("popupModal");
     var btn = document.getElementById("howToUseButton");
-    var span = document.getElementById("closeModal");
+    var span = document.getElementById("closePopup");
 
     // Initially hide the modal
     modal.style.display = "none";
