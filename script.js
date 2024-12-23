@@ -107,7 +107,7 @@ document.addEventListener("DOMContentLoaded", function() {
     var span = document.getElementById("closePopup");
 
     // Initially hide the modal
-    modal.style.display = "none";
+    modal.classList.remove("show");
 
     // When the user clicks the button, open the modal 
     btn.onclick = function() {
@@ -117,18 +117,12 @@ document.addEventListener("DOMContentLoaded", function() {
     // When the user clicks on <span> (x), close the modal
     span.onclick = function() {
         modal.classList.remove("show");
-        setTimeout(function() {
-            modal.style.display = "none";
-        }, 500); // Wait for the transition to finish
     }
 
     // When the user clicks anywhere outside of the modal, close it
     window.onclick = function(event) {
         if (event.target == modal) {
             modal.classList.remove("show");
-            setTimeout(function() {
-                modal.style.display = "none";
-            }, 500); // Wait for the transition to finish
         }
     }
 });
