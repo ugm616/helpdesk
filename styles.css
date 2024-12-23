@@ -304,6 +304,7 @@ input:checked + .slider:before {
     outline: none; /* Remove the default outline */
 }
 
+/* Add transition for the popup modal */
 .popup-modal {
     display: none;
     position: fixed;
@@ -315,6 +316,13 @@ input:checked + .slider:before {
     overflow: auto;
     background-color: rgb(0,0,0);
     background-color: rgba(0,0,0,0.4);
+    opacity: 0; /* Initially hidden */
+    transition: opacity 0.5s ease-in-out; /* Fade transition */
+}
+
+.popup-modal.show {
+    display: block; /* Show the modal */
+    opacity: 1; /* Fully visible */
 }
 
 .popup-content {
