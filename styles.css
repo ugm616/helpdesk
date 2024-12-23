@@ -79,7 +79,7 @@ body {
 }
 
 .search-button {
-    background-color: #007bff; /* Adjust this color to match the rest of your buttons */
+    background-color: #007bff;
     border: none;
     color: white;
     padding: 10px 20px;
@@ -165,7 +165,6 @@ body {
     transition: all 0.3s ease;
 }
 
-/* Adjustments for dark mode */
 [data-theme="dark"] .theme-icon {
     content: '🌙';
 }
@@ -251,7 +250,7 @@ input:checked + .slider:before {
 .search-results {
     margin-top: 20px;
     width: 110%;
-    margin-left: -5%; /* Offset the extra width to keep it centered */
+    margin-left: -5%;
     margin-right: -5%;
 }
 
@@ -296,8 +295,8 @@ input:checked + .slider:before {
 
 #howToUseButton {
     display: block;
-    margin: 20px auto;  /* Center align button with auto margins */
-    border: 1px solid #0092FF;  /* Thin outline with the color #0092FF */
+    margin: 20px auto;
+    border: 1px solid #0092FF;
 }
 
 /* Mobile Responsive Styles */
