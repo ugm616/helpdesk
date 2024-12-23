@@ -261,6 +261,7 @@ input:checked + .slider:before {
 .search-results table {
     width: auto; /* Allow the table to adjust based on content */
     max-width: 100%; /* Ensure the table doesn't exceed the container width */
+    margin: 0 auto; /* Center the table */
     table-layout: auto; /* Ensure the table adapts to the content */
     border-collapse: collapse;
     background: var(--background-color);
