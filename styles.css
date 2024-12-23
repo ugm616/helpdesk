@@ -294,6 +294,12 @@ input:checked + .slider:before {
     margin: 0 auto;
 }
 
+#howToUseButton {
+    display: block;
+    margin: 20px auto;  /* Center align button with auto margins */
+    border: 1px solid #0092FF;  /* Thin outline with the color #0092FF */
+}
+
 /* Mobile Responsive Styles */
 @media screen and (max-width: 768px) {
     .logo-container h1 {
