@@ -1,5 +1,8 @@
 # Helpdesk Location Search
 
+Originally created by makktu (mattku.github.io).
+_________________________________________________
+
 A simple, lightweight search application for finding rooms and departments in the UHCW Walsgrave building (hopefully more locations to be added).
 
 No database, no server - just pure HTML, CSS, and JavaScript.
