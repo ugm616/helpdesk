@@ -304,7 +304,6 @@ input:checked + .slider:before {
     outline: none; /* Remove the default outline */
 }
 
-/* Add transition for the popup modal */
 .popup-modal {
     display: none;
     position: fixed;
