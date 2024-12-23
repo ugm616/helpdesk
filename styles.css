@@ -78,6 +78,37 @@ body {
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
+.search-results table {
+    width: 100%;
+    table-layout: fixed; /* Add this property */
+}
+
+.search-results th, .search-results td {
+    white-space: nowrap; /* Ensure text doesn't wrap */
+    overflow: hidden;     /* Hide overflow */
+    text-overflow: ellipsis; /* Add ellipsis for overflow text */
+}
+
+.search-results th:nth-child(1), .search-results td:nth-child(1) {
+    width: 15%; /* Adjust width percentage as needed */
+}
+
+.search-results th:nth-child(2), .search-results td:nth-child(2) {
+    width: 35%; /* Adjust width percentage as needed */
+}
+
+.search-results th:nth-child(3), .search-results td:nth-child(3) {
+    width: 10%; /* Adjust width percentage as needed */
+}
+
+.search-results th:nth-child(4), .search-results td:nth-child(4) {
+    width: 10%; /* Adjust width percentage as needed */
+}
+
+.search-results th:nth-child(5), .search-results td:nth-child(5) {
+    width: 30%; /* Adjust width percentage as needed */
+}
+
 .search-button {
     background-color: #007bff;
     border: none;
