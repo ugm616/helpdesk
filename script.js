@@ -101,6 +101,26 @@ function displayResults(results) {
     });
 }
 
+document.addEventListener('DOMContentLoaded', () => {
+    const modal = document.getElementById('modal');
+    const btn = document.getElementById('howToUseButton');
+    const span = document.getElementById('closeModal');
+
+    btn.onclick = function() {
+        modal.style.display = "block";
+    }
+
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    window.onclick = function(event) {
+        if (event.target === modal) {
+            modal.style.display = "none";
+        }
+    }
+});
+
 // Set up search input event listener
 document.addEventListener('DOMContentLoaded', () => {
     const searchInput = document.getElementById('locationSearch');
