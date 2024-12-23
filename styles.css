@@ -168,11 +168,12 @@ body {
     font-size: 30px;
     cursor: pointer;
     transition: all 0.3s ease;
+    content: 'Light Mode';
     color: var(--theme-icon-color);
 }
 
 [data-theme="dark"] .theme-icon {
-    content: '🌙';
+    content: 'Dark Mode';
     color: var(--theme-icon-color);
 }
 
