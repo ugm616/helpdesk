@@ -78,6 +78,20 @@ body {
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
+.search-button {
+    background-color: #007bff; /* Adjust this color to match the rest of your buttons */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
 .clear-button {
     position: absolute;
     right: 12px;
