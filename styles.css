@@ -29,7 +29,7 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Ubuntu', Arial, sans-serif;
     min-height: 100vh;
     background-color: var(--background-color);
     color: var(--text-color);
@@ -295,6 +295,11 @@ input:checked + .slider:before {
     text-align: center;
     padding: 20px;
     color: var(--text-color);
+}
+
+.responsive-logo {
+    max-width: 100%;
+    height: auto;
 }
 
 /* Mobile Responsive Styles */
