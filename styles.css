@@ -271,7 +271,7 @@ input:checked + .slider:before {
 }
 
 .search-results th {
-    background-color: var(--primary-color);
+    background: linear-gradient(to bottom, #0092FF, #80C1FF, #0092FF);
     color: white;
     font-weight: 600;
 }
