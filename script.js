@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const span = document.getElementById("closePopup");
     const searchInput = document.getElementById('locationSearch');
     const clearButton = document.getElementById('clearSearch');
+    const body = document.body;
     let debounceTimer;
 
     if (toggleIcon) {
@@ -38,13 +39,14 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     function toggleBackgroundImage() {
-        const body = document.body;
-        if (body.style.backgroundImage) {
-            body.style.backgroundImage = "none";
+        if (body.classList.contains('bg-visible')) {
+            body.classList.remove('bg-visible');
+            body.classList.add('bg-hidden');
             localStorage.setItem('bgImage', 'off');
             if (bgToggleIconSpan) bgToggleIconSpan.textContent = '🖾';
         } else {
-            body.style.backgroundImage = `url(${getComputedStyle(document.documentElement).getPropertyValue('--background-image').trim()})`;
+            body.classList.remove('bg-hidden');
+            body.classList.add('bg-visible');
             localStorage.setItem('bgImage', 'on');
             if (bgToggleIconSpan) bgToggleIconSpan.textContent = '🖽';
         }
@@ -52,10 +54,10 @@ document.addEventListener("DOMContentLoaded", function() {
 
     const bgImageState = localStorage.getItem('bgImage');
     if (bgImageState === 'off') {
-        document.body.style.backgroundImage = "none";
+        body.classList.add('bg-hidden');
         if (bgToggleIconSpan) bgToggleIconSpan.textContent = '🖾';
     } else {
-        document.body.style.backgroundImage = `url(${getComputedStyle(document.documentElement).getPropertyValue('--background-image').trim()})`;
+        body.classList.add('bg-visible');
         if (bgToggleIconSpan) bgToggleIconSpan.textContent = '🖽';
     }
 
