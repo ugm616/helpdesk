@@ -1,5 +1,9 @@
 const toggleIcon = document.getElementById('theme-toggle');
 
+if (toggleIcon) {
+    toggleIcon.addEventListener('click', switchTheme);
+}
+
 function switchTheme() {
     const currentTheme = document.documentElement.getAttribute('data-theme');
     if (currentTheme === 'dark') {
