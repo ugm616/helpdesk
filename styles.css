@@ -16,7 +16,7 @@
     --text-color: #fff;
     --button-bg: #303134;
     --button-hover: #3c4043;
-    --button-text: #e8eaed;
+    --button-text: #0092FF;
     --input-border: #5f6368;
     --border-color: #5f6368;
     --primary-color: #66bb6a;
@@ -388,10 +388,6 @@ input:checked + .slider:before {
 
 .theme-button:hover {
     background-color: var(--background-color);
-}
-
-.theme-button[data-theme="dark"] {
-    color: blue;
 }
 
 /* Mobile Responsive Styles */
