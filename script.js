@@ -8,8 +8,10 @@ document.addEventListener("DOMContentLoaded", function() {
     const span = document.getElementById("closePopup");
     const searchInput = document.getElementById('locationSearch');
     const clearButton = document.getElementById('clearSearch');
-    const body = document.body;
+    const bgContainer = document.querySelector('.background-image-container');
     let debounceTimer;
+
+    bgContainer.style.backgroundImage = getComputedStyle(document.documentElement).getPropertyValue('--background-image').trim();
 
     if (toggleIcon) {
         toggleIcon.addEventListener('click', switchTheme);
@@ -26,12 +28,14 @@ document.addEventListener("DOMContentLoaded", function() {
             localStorage.setItem('theme', 'dark');
             if (toggleIconSpan) toggleIconSpan.textContent = '🌙';
         }
+        bgContainer.style.backgroundImage = getComputedStyle(document.documentElement).getPropertyValue('--background-image').trim();
     }
 
     const currentTheme = localStorage.getItem('theme');
     if (currentTheme) {
         document.documentElement.setAttribute('data-theme', currentTheme);
         if (toggleIconSpan) toggleIconSpan.textContent = currentTheme === 'dark' ? '🌙' : '☀️';
+        bgContainer.style.backgroundImage = getComputedStyle(document.documentElement).getPropertyValue('--background-image').trim();
     }
 
     if (bgToggleIcon) {
@@ -39,25 +43,23 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     function toggleBackgroundImage() {
-        if (body.classList.contains('bg-visible')) {
-            body.classList.remove('bg-visible');
-            body.classList.add('bg-hidden');
-            localStorage.setItem('bgImage', 'off');
-            if (bgToggleIconSpan) bgToggleIconSpan.textContent = '🖾';
-        } else {
-            body.classList.remove('bg-hidden');
-            body.classList.add('bg-visible');
+        if (bgContainer.classList.contains('bg-hidden')) {
+            bgContainer.classList.remove('bg-hidden');
             localStorage.setItem('bgImage', 'on');
             if (bgToggleIconSpan) bgToggleIconSpan.textContent = '🖽';
+        } else {
+            bgContainer.classList.add('bg-hidden');
+            localStorage.setItem('bgImage', 'off');
+            if (bgToggleIconSpan) bgToggleIconSpan.textContent = '🖾';
         }
     }
 
     const bgImageState = localStorage.getItem('bgImage');
     if (bgImageState === 'off') {
-        body.classList.add('bg-hidden');
+        bgContainer.classList.add('bg-hidden');
         if (bgToggleIconSpan) bgToggleIconSpan.textContent = '🖾';
     } else {
-        body.classList.add('bg-visible');
+        bgContainer.classList.add('bg-visible');
         if (bgToggleIconSpan) bgToggleIconSpan.textContent = '🖽';
     }
 
@@ -95,7 +97,7 @@ document.addEventListener("DOMContentLoaded", function() {
             toggleClearButton();
             clearTimeout(debounceTimer);
             debounceTimer = setTimeout(async () => {
-                const searchTerm = e.target.value.trim().toUpperCase(); // Convert to uppercase
+                const searchTerm = e.target.value.trim().toUpperCase();
                 if (searchTerm.length === 0) {
                     document.getElementById('searchResults').style.display = 'none';
                     return;
