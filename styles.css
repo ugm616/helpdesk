@@ -378,7 +378,8 @@ input:checked + .slider:before {
 .theme-button {
     background-color: var(--background-color);
     border: none;
-    font-size: 24px;
+    font-size: 36px;
+    font-weight: 600;
     cursor: pointer;
     padding: 8px;
     border-radius: 50%;
