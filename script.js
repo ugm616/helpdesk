@@ -1,6 +1,8 @@
 document.addEventListener("DOMContentLoaded", function() {
     const toggleIcon = document.getElementById('theme-toggle');
     const toggleIconSpan = toggleIcon ? toggleIcon.querySelector('span') : null;
+    const bgToggleIcon = document.getElementById('bg-toggle');
+    const bgToggleIconSpan = bgToggleIcon ? bgToggleIcon.querySelector('span') : null;
     const modal = document.getElementById("popupModal");
     const btn = document.getElementById("howToUseButton");
     const span = document.getElementById("closePopup");
@@ -29,6 +31,32 @@ document.addEventListener("DOMContentLoaded", function() {
     if (currentTheme) {
         document.documentElement.setAttribute('data-theme', currentTheme);
         if (toggleIconSpan) toggleIconSpan.textContent = currentTheme === 'dark' ? '🌙' : '☀️';
+    }
+
+    if (bgToggleIcon) {
+        bgToggleIcon.addEventListener('click', toggleBackgroundImage);
+    }
+
+    function toggleBackgroundImage() {
+        const body = document.body;
+        if (body.style.backgroundImage) {
+            body.style.backgroundImage = "";
+            localStorage.setItem('bgImage', 'off');
+            if (bgToggleIconSpan) bgToggleIconSpan.textContent = '🖾';
+        } else {
+            body.style.backgroundImage = `url(${getComputedStyle(document.documentElement).getPropertyValue('--background-image').trim()})`;
+            localStorage.setItem('bgImage', 'on');
+            if (bgToggleIconSpan) bgToggleIconSpan.textContent = '🖽';
+        }
+    }
+
+    const bgImageState = localStorage.getItem('bgImage');
+    if (bgImageState === 'off') {
+        document.body.style.backgroundImage = "";
+        if (bgToggleIconSpan) bgToggleIconSpan.textContent = '🖾';
+    } else {
+        document.body.style.backgroundImage = `url(${getComputedStyle(document.documentElement).getPropertyValue('--background-image').trim()})`;
+        if (bgToggleIconSpan) bgToggleIconSpan.textContent = '🖽';
     }
 
     if (btn) {
@@ -65,7 +93,7 @@ document.addEventListener("DOMContentLoaded", function() {
             toggleClearButton();
             clearTimeout(debounceTimer);
             debounceTimer = setTimeout(async () => {
-                const searchTerm = e.target.value.trim();
+                const searchTerm = e.target.value.trim().toUpperCase(); // Convert to uppercase
                 if (searchTerm.length === 0) {
                     document.getElementById('searchResults').style.display = 'none';
                     return;
