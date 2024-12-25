@@ -5,11 +5,11 @@ function switchTheme() {
     if (currentTheme === 'dark') {
         document.documentElement.setAttribute('data-theme', 'light');
         localStorage.setItem('theme', 'light');
-        toggleIcon.textContent = '☀️';  // Set to sun emoji
+        toggleIcon.textContent = '\u2600\ufe0f';  // Set to sun emoji
     } else {
         document.documentElement.setAttribute('data-theme', 'dark');
         localStorage.setItem('theme', 'dark');
-        toggleIcon.textContent = '🌙';  // Set to moon emoji
+        toggleIcon.textContent = '\ud83c\udf19';  // Set to moon emoji
     }
 }
 
@@ -19,7 +19,7 @@ toggleIcon.addEventListener('click', switchTheme);
 const currentTheme = localStorage.getItem('theme');
 if (currentTheme) {
     document.documentElement.setAttribute('data-theme', currentTheme);
-    toggleIcon.textContent = currentTheme === 'dark' ? '🌙' : '☀️';
+    toggleIcon.textContent = currentTheme === 'dark' ? '\ud83c\udf19' : '\u2600\ufe0f';
 }
 
 // Function to load and search location data
