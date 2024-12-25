@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function() {
         bgToggleIcon.addEventListener('click', toggleBackgroundImage);
     }
 
-    function toggleBackgroundImage() {
+function toggleBackgroundImage() {
     if (bgContainer.classList.contains('bg-hidden')) {
         bgContainer.classList.remove('bg-hidden');
         bgContainer.classList.add('bg-visible');
