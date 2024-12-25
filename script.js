@@ -17,8 +17,6 @@ function switchTheme() {
     }
 }
 
-toggleIcon.addEventListener('click', switchTheme);
-
 // Check for saved theme preference
 const currentTheme = localStorage.getItem('theme');
 if (currentTheme) {
