@@ -261,6 +261,16 @@ input:checked + .slider:before {
     margin-top: 15px;
 }
 
+.bg-hidden {
+    opacity: 0;
+    transition: opacity 1.0s ease;
+}
+
+.bg-visible {
+    opacity: 1;
+    transition: opacity 1.0s ease;
+}
+
 .center-table {
     display: flex;
     justify-content: center;
