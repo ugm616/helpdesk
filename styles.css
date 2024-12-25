@@ -37,6 +37,9 @@ body {
     min-height: 100vh;
     background-color: var(--background-color);
     background-image: var(--background-image);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     color: var(--text-color);
     transition: all 0.3s ease;
     display: flex;
