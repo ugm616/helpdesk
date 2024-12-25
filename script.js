@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function() {
     function toggleBackgroundImage() {
         const body = document.body;
         if (body.style.backgroundImage) {
-            body.style.backgroundImage = "";
+            body.style.backgroundImage = "none";
             localStorage.setItem('bgImage', 'off');
             if (bgToggleIconSpan) bgToggleIconSpan.textContent = '🖾';
         } else {
@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     const bgImageState = localStorage.getItem('bgImage');
     if (bgImageState === 'off') {
-        document.body.style.backgroundImage = "";
+        document.body.style.backgroundImage = "none";
         if (bgToggleIconSpan) bgToggleIconSpan.textContent = '🖾';
     } else {
         document.body.style.backgroundImage = `url(${getComputedStyle(document.documentElement).getPropertyValue('--background-image').trim()})`;
