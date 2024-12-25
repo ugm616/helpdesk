@@ -9,6 +9,7 @@
     --primary-color: #4285f4;
     --hover-color: #f1f3f4;
     --theme-icon-color: #0092FF;
+    --background-image: url('bg/bglight.jpg');
 }
 
 [data-theme="dark"] {
@@ -22,6 +23,7 @@
     --primary-color: #66bb6a;
     --hover-color: #3c4043;
     --theme-icon-color: #0092FF;
+    --background-image: url('bg/bgdark.jpg');
 }
 
 * {
@@ -34,6 +36,7 @@ body {
     font-family: 'Ubuntu', Arial, sans-serif;
     min-height: 100vh;
     background-color: var(--background-color);
+    background-image: var(--background-image);
     color: var(--text-color);
     transition: all 0.3s ease;
     display: flex;
