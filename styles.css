@@ -667,3 +667,7 @@ input:checked + .slider:before {
 .bg-hidden {
     opacity: 0;
 }
+
+.bg-visible {
+    opacity: 1;
+}
