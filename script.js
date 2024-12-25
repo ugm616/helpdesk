@@ -56,14 +56,15 @@ function toggleBackgroundImage() {
     }
 }
 
-    const bgImageState = localStorage.getItem('bgImage');
-    if (bgImageState === 'off') {
-        bgContainer.classList.add('bg-hidden');
-        if (bgToggleIconSpan) bgToggleIconSpan.textContent = '🖾';
-    } else {
-        bgContainer.classList.add('bg-visible');
-        if (bgToggleIconSpan) bgToggleIconSpan.textContent = '🖽';
-    }
+// Initial setup based on localStorage
+const bgImageState = localStorage.getItem('bgImage');
+if (bgImageState === 'off') {
+    bgContainer.classList.add('bg-hidden');
+    if (bgToggleIconSpan) bgToggleIconSpan.textContent = '🖾';
+} else {
+    bgContainer.classList.add('bg-visible');
+    if (bgToggleIconSpan) bgToggleIconSpan.textContent = '🖽';
+}
 
     if (btn) {
         btn.onclick = function() {
