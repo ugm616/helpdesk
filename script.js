@@ -43,16 +43,18 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     function toggleBackgroundImage() {
-        if (bgContainer.classList.contains('bg-hidden')) {
-            bgContainer.classList.remove('bg-hidden');
-            localStorage.setItem('bgImage', 'on');
-            if (bgToggleIconSpan) bgToggleIconSpan.textContent = '🖽';
-        } else {
-            bgContainer.classList.add('bg-hidden');
-            localStorage.setItem('bgImage', 'off');
-            if (bgToggleIconSpan) bgToggleIconSpan.textContent = '🖾';
-        }
+    if (bgContainer.classList.contains('bg-hidden')) {
+        bgContainer.classList.remove('bg-hidden');
+        bgContainer.classList.add('bg-visible');
+        localStorage.setItem('bgImage', 'on');
+        if (bgToggleIconSpan) bgToggleIconSpan.textContent = '🖽';
+    } else {
+        bgContainer.classList.remove('bg-visible');
+        bgContainer.classList.add('bg-hidden');
+        localStorage.setItem('bgImage', 'off');
+        if (bgToggleIconSpan) bgToggleIconSpan.textContent = '🖾';
     }
+}
 
     const bgImageState = localStorage.getItem('bgImage');
     if (bgImageState === 'off') {
