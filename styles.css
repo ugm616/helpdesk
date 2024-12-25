@@ -385,6 +385,10 @@ input:checked + .slider:before {
     transition: background-color 0.3s ease;
 }
 
+.theme-button:hover {
+    background-color: var(--background-color);
+}
+
 .theme-button[data-theme="dark"] {
     color: blue;
 }
