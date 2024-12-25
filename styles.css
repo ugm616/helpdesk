@@ -661,7 +661,7 @@ input:checked + .slider:before {
     background-repeat: no-repeat;
     z-index: -1; /* Ensure the background image is behind all content */
     opacity: 1;
-    transition: opacity 1.0s ease;
+    transition: opacity 1.0s ease-in-out;
 }
 
 .bg-hidden {
