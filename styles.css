@@ -376,15 +376,13 @@ input:checked + .slider:before {
 }
 
 .theme-button {
-    background-color: var(--button-bg);
-    border: 1px solid var(--button-bg);
-    border-radius: 4px;
-    color: var(--button-text);
-    font-size: 14px;
-    padding: 8px 16px;
+    background-color: var(--background-color);
+    border: none;
+    font-size: 24px;
     cursor: pointer;
-    margin: 4px 2px;
-    transition: background-color 0.2s;
+    padding: 8px;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
 }
 
 .theme-button:hover {
