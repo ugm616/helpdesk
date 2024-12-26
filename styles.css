@@ -151,7 +151,7 @@ body {
 .clear-button svg {
     width: 20px;
     height: 20px;
-    fill: var (--text-color);
+    fill: var(--text-color);
     opacity: 0.7;
 }
 
@@ -347,7 +347,7 @@ input:checked + .slider:before {
 .search-results #noResults {
     text-align: center;
     padding: 20px;
-    color: var (--text-color);
+    color: var(--text-color);
 }
 
 .responsive-logo {
@@ -551,148 +551,4 @@ input:checked + .slider:before {
         padding: 0 10px;
     }
 
-    .search-results table {
-        display: block;
-    }
-
-    .search-results thead {
-        display: none; /* Hide headers on mobile */
-    }
-
-    .search-results tbody tr {
-        display: block;
-        margin-bottom: 12px;
-        margin-right: 10px;
-        margin-left: 10px;
-        background: linear-gradient(to bottom right, 
-            var(--background-color), 
-            color-mix(in srgb, var(--background-color) 97%, var(--primary-color))
-        );
-        padding: 10px;
-        border-radius: 8px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        border: 1px solid var(--border-color);
-    }
-
-    /* Add a subtle gradient background to cards */
-    .search-results tbody tr {
-        background: linear-gradient(to bottom right, 
-            var(--background-color), 
-            color-mix(in srgb, var(--background-color) 97%, var(--primary-color))
-        );
-    }
-
-    .search-results td {
-        display: block;
-        padding: 4px 8px;
-        border: none;
-        position: relative;
-        padding-left: 95px; /* Increased from 85px */
-        font-size: 0.9em;
-        line-height: 1.4;
-    }
-
-    .search-results td:before {
-        content: attr(data-label);
-        position: absolute;
-        left: 8px;
-        width: 75px;
-        margin-right: 15px;
-        font-weight: 600;
-        color: var(--primary-color);
-    }
-
-    .search-results td:not(:last-child) {
-        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-        margin-bottom: 2px;
-    }
-
-    /* Hide Floor field on mobile */
-    .search-results td[data-label="Floor"] {
-        display: none;
-    }
-
-    /* Add a subtle hover effect */
-    .search-results tbody tr:active {
-        transform: scale(0.995);
-        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-    }
-}
-
-@media screen and (max-width: 480px) {
-    .logo-container h1 {
-        font-size: 56px;
-        letter-spacing: -1px;
-    }
-
-    .search-input {
-        font-size: 14px;
-    }
-
-    .theme-switch-wrapper em {
-        font-size: 12px;
-    }
-
-    .theme-switch {
-        width: 50px;
-        height: 28px;
-    }
-
-    .slider:before {
-        height: 20px;
-        width: 20px;
-    }
-
-    input:checked + .slider:before {
-        transform: translateX(22px);
-    }
-
-    .tips-box {
-        margin: 20px 15px;
-        padding: 12px;
-    }
-
-    .tips-header h2 {
-        font-size: 16px;
-    }
-
-    .tips-box p {
-        font-size: 13px;
-        line-height: 1.5;
-    }
-
-    .tips-icon {
-        width: 20px;
-        height: 20px;
-    }
-}
-
-/* Add padding to prevent content from being hidden under mobile keyboards */
-@media screen and (max-height: 600px) {
-    .container {
-        min-height: 100vh;
-        padding: 80px 0;
-    }
-}
-
-.background-image-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    z-index: -1; /* Ensure the background image is behind all content */
-    opacity: 1;
-    transition: opacity 1.0s ease-in-out;
-}
-
-.bg-hidden {
-    opacity: 0;
-}
-
-.bg-visible {
-    opacity: 1;
-}
+    .search-results
