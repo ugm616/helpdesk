@@ -9,7 +9,6 @@
     --primary-color: #4285f4;
     --hover-color: #f1f3f4;
     --theme-icon-color: #0092FF;
-    --background-image: url('bg/bglight.jpg');
 }
 
 [data-theme="dark"] {
@@ -23,7 +22,6 @@
     --primary-color: #66bb6a;
     --hover-color: #3c4043;
     --theme-icon-color: #0092FF;
-    --background-image: url('bg/bgdark.jpg');
 }
 
 * {
@@ -36,7 +34,6 @@ body {
     font-family: 'Ubuntu', Arial, sans-serif;
     min-height: 100vh;
     background-color: var(--background-color);
-    background-image: var(--background-image);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -44,6 +41,34 @@ body {
     transition: all 0.3s ease, background-image 1.0s ease-in-out;
     display: flex;
     flex-direction: column;
+}
+
+/* Background image ON, Light mode */
+.bg-on-light {
+    --background-color: #fff;
+    --text-color: #000;
+    --background-image: url('bg/bglight.jpg');
+}
+
+/* Background image OFF, Light mode */
+.bg-off-light {
+    --background-color: #fff;
+    --text-color: #000;
+    --background-image: none;
+}
+
+/* Background image ON, Dark mode */
+.bg-on-dark {
+    --background-color: #202124;
+    --text-color: #fff;
+    --background-image: url('bg/bgdark.jpg');
+}
+
+/* Background image OFF, Dark mode */
+.bg-off-dark {
+    --background-color: #202124;
+    --text-color: #fff;
+    --background-image: none;
 }
 
 .container {
@@ -126,7 +151,7 @@ body {
 .clear-button svg {
     width: 20px;
     height: 20px;
-    fill: var(--text-color);
+    fill: var (--text-color);
     opacity: 0.7;
 }
 
