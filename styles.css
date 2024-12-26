@@ -26,6 +26,34 @@
     --background-image: url('bg/bgdark.jpg');
 }
 
+/* Background image ON, Light mode */
+.bg-on-light {
+    --background-color: #fff;
+    --text-color: #000;
+    --background-image: url('bg/bglight.jpg');
+}
+
+/* Background image OFF, Light mode */
+.bg-off-light {
+    --background-color: #fff;
+    --text-color: #000;
+    --background-image: none;
+}
+
+/* Background image ON, Dark mode */
+.bg-on-dark {
+    --background-color: #202124;
+    --text-color: #fff;
+    --background-image: url('bg/bgdark.jpg');
+}
+
+/* Background image OFF, Dark mode */
+.bg-off-dark {
+    --background-color: #202124;
+    --text-color: #fff;
+    --background-image: none;
+}
+
 * {
     margin: 0;
     padding: 0;
