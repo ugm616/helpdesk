@@ -34,41 +34,10 @@ body {
     font-family: 'Ubuntu', Arial, sans-serif;
     min-height: 100vh;
     background-color: var(--background-color);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
     color: var(--text-color);
-    transition: all 0.3s ease, background-image 1.0s ease-in-out;
+    transition: all 0.3s ease;
     display: flex;
     flex-direction: column;
-}
-
-/* Background image ON, Light mode */
-.bg-on-light {
-    --background-color: #fff;
-    --text-color: #000;
-    --background-image: url('bg/bglight.jpg');
-}
-
-/* Background image OFF, Light mode */
-.bg-off-light {
-    --background-color: #fff;
-    --text-color: #000;
-    --background-image: none;
-}
-
-/* Background image ON, Dark mode */
-.bg-on-dark {
-    --background-color: #202124;
-    --text-color: #fff;
-    --background-image: url('bg/bgdark.jpg');
-}
-
-/* Background image OFF, Dark mode */
-.bg-off-dark {
-    --background-color: #202124;
-    --text-color: #fff;
-    --background-image: none;
 }
 
 .container {
@@ -208,44 +177,6 @@ body {
     color: var(--theme-icon-color);
 }
 
-.slider {
-    background-color: #ccc;
-    bottom: 0;
-    cursor: pointer;
-    left: 0;
-    position: absolute;
-    right: 0;
-    top: 0;
-    transition: .4s;
-}
-
-.slider:before {
-    background-color: #fff;
-    bottom: 4px;
-    content: "";
-    height: 26px;
-    left: 4px;
-    position: absolute;
-    transition: .4s;
-    width: 26px;
-}
-
-input:checked + .slider {
-    background-color: #66bb6a;
-}
-
-input:checked + .slider:before {
-    transform: translateX(26px);
-}
-
-.slider.round {
-    border-radius: 34px;
-}
-
-.slider.round:before {
-    border-radius: 50%;
-}
-
 .tips-box {
     margin: 80px auto 40px;
     background-color: var(--button-bg);
@@ -272,11 +203,11 @@ input:checked + .slider:before {
 .tips-header h2 {
     font-size: 18px;
     font-weight: 500;
-    color: var(--text-color);
+    color: var (--text-color);
 }
 
 .tips-box p {
-    color: var(--text-color);
+    color: var (--text-color);
     font-size: 14px;
     line-height: 1.6;
     margin: 0;
@@ -284,16 +215,6 @@ input:checked + .slider:before {
 
 .tips-box p + p {
     margin-top: 15px;
-}
-
-.bg-hidden {
-    opacity: 0;
-    transition: opacity 1.0s ease;
-}
-
-.bg-visible {
-    opacity: 1;
-    transition: opacity 1.0s ease;
 }
 
 .center-table {
@@ -551,4 +472,126 @@ input:checked + .slider:before {
         padding: 0 10px;
     }
 
-    .search-results
+    .search-results table {
+        display: block;
+    }
+
+    .search-results thead {
+        display: none; /* Hide headers on mobile */
+    }
+
+    .search-results tbody tr {
+        display: block;
+        margin-bottom: 12px;
+        margin-right: 10px;
+        margin-left: 10px;
+        background: linear-gradient(to bottom right, 
+            var(--background-color), 
+            color-mix(in srgb, var(--background-color) 97%, var(--primary-color))
+        );
+        padding: 10px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        border: 1px solid var(--border-color);
+    }
+
+    /* Add a subtle gradient background to cards */
+    .search-results tbody tr {
+        background: linear-gradient(to bottom right, 
+            var(--background-color), 
+            color-mix(in srgb, var(--background-color) 97%, var(--primary-color))
+        );
+    }
+
+    .search-results td {
+        display: block;
+        padding: 4px 8px;
+        border: none;
+        position: relative;
+        padding-left: 95px; /* Increased from 85px */
+        font-size: 0.9em;
+        line-height: 1.4;
+    }
+
+    .search-results td:before {
+        content: attr(data-label);
+        position: absolute;
+        left: 8px;
+        width: 75px;
+        margin-right: 15px;
+        font-weight: 600;
+        color: var(--primary-color);
+    }
+
+    .search-results td:not(:last-child) {
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        margin-bottom: 2px;
+    }
+
+    /* Hide Floor field on mobile */
+    .search-results td[data-label="Floor"] {
+        display: none;
+    }
+
+    /* Add a subtle hover effect */
+    .search-results tbody tr:active {
+        transform: scale(0.995);
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .logo-container h1 {
+        font-size: 56px;
+        letter-spacing: -1px;
+    }
+
+    .search-input {
+        font-size: 14px;
+    }
+
+    .theme-switch-wrapper em {
+        font-size: 12px;
+    }
+
+    .theme-switch {
+        width: 50px;
+        height: 28px;
+    }
+
+    .slider:before {
+        height: 20px;
+        width: 20px;
+    }
+
+    input:checked + .slider:before {
+        transform: translateX(22px);
+    }
+
+    .tips-box {
+        margin: 20px 15px;
+        padding: 12px;
+    }
+
+    .tips-header h2 {
+        font-size: 16px;
+    }
+
+    .tips-box p {
+        font-size: 13px;
+        line-height: 1.5;
+    }
+
+    .tips-icon {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+/* Add padding to prevent content from being hidden under mobile keyboards */
+@media screen and (max-height: 600px) {
+    .container {
+        min-height: 100vh;
+        padding: 80px 0;
+    }
+}
