@@ -10,61 +10,39 @@ document.addEventListener("DOMContentLoaded", function() {
     const clearButton = document.getElementById('clearSearch');
     const bgContainer = document.querySelector('.background-image-container');
     let debounceTimer;
+    let themeState = localStorage.getItem('theme') || 'light';
+    let bgState = localStorage.getItem('bgImage') || 'on';
 
-    bgContainer.style.backgroundImage = getComputedStyle(document.documentElement).getPropertyValue('--background-image').trim();
-
-    if (toggleIcon) {
-        toggleIcon.addEventListener('click', switchTheme);
+    function applyClass() {
+        document.documentElement.className = `bg-${bgState}-${themeState}`;
     }
 
     function switchTheme() {
-        const currentTheme = document.documentElement.getAttribute('data-theme');
-        if (currentTheme === 'dark') {
-            document.documentElement.setAttribute('data-theme', 'light');
-            localStorage.setItem('theme', 'light');
-            if (toggleIconSpan) toggleIconSpan.textContent = '☀️';
-        } else {
-            document.documentElement.setAttribute('data-theme', 'dark');
-            localStorage.setItem('theme', 'dark');
-            if (toggleIconSpan) toggleIconSpan.textContent = '🌙';
-        }
-        bgContainer.style.backgroundImage = getComputedStyle(document.documentElement).getPropertyValue('--background-image').trim();
+        themeState = themeState === 'dark' ? 'light' : 'dark';
+        localStorage.setItem('theme', themeState);
+        applyClass();
+        if (toggleIconSpan) toggleIconSpan.textContent = themeState === 'dark' ? '🌙' : '☀️';
     }
 
-    const currentTheme = localStorage.getItem('theme');
-    if (currentTheme) {
-        document.documentElement.setAttribute('data-theme', currentTheme);
-        if (toggleIconSpan) toggleIconSpan.textContent = currentTheme === 'dark' ? '🌙' : '☀️';
-        bgContainer.style.backgroundImage = getComputedStyle(document.documentElement).getPropertyValue('--background-image').trim();
+    function toggleBackgroundImage() {
+        bgState = bgState === 'on' ? 'off' : 'on';
+        localStorage.setItem('bgImage', bgState);
+        applyClass();
+        if (bgToggleIconSpan) bgToggleIconSpan.textContent = bgState === 'on' ? '🖼️' : '🚫';
+    }
+
+    if (toggleIcon) {
+        toggleIcon.addEventListener('click', switchTheme);
     }
 
     if (bgToggleIcon) {
         bgToggleIcon.addEventListener('click', toggleBackgroundImage);
     }
 
-function toggleBackgroundImage() {
-    if (bgContainer.classList.contains('bg-hidden')) {
-        bgContainer.classList.remove('bg-hidden');
-        bgContainer.classList.add('bg-visible');
-        localStorage.setItem('bgImage', 'on');
-        if (bgToggleIconSpan) bgToggleIconSpan.textContent = '🖽';
-    } else {
-        bgContainer.classList.remove('bg-visible');
-        bgContainer.classList.add('bg-hidden');
-        localStorage.setItem('bgImage', 'off');
-        if (bgToggleIconSpan) bgToggleIconSpan.textContent = '🖾';
-    }
-}
-
-// Initial setup based on localStorage
-const bgImageState = localStorage.getItem('bgImage');
-if (bgImageState === 'off') {
-    bgContainer.classList.add('bg-hidden');
-    if (bgToggleIconSpan) bgToggleIconSpan.textContent = '🖾';
-} else {
-    bgContainer.classList.add('bg-visible');
-    if (bgToggleIconSpan) bgToggleIconSpan.textContent = '🖽';
-}
+    applyClass();
+    
+    // Existing code for modal, search and other functionalities
+    bgContainer.style.backgroundImage = getComputedStyle(document.documentElement).getPropertyValue('--background-image').trim();
 
     if (btn) {
         btn.onclick = function() {
