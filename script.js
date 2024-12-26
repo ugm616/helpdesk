@@ -78,4 +78,33 @@ async function searchLocations(searchTerm) {
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
-        const data
+        const data = await response.json();
+
+        searchTerm = searchTerm.toLowerCase();
+        const results = [];
+        const dataToProcess = Array.isArray(data) ? data : [data];
+
+        dataToProcess.forEach(locationGroup => {
+            if (typeof locationGroup === 'object' && locationGroup !== null) {
+                Object.entries(locationGroup).forEach(([key, location]) => {
+                    if (location && typeof location === 'object') {
+                        if (
+                            location['Room Num']?.toLowerCase().includes(searchTerm) ||
+                            location['Description']?.toLowerCase().includes(searchTerm) ||
+                            location['Wing']?.toLowerCase().includes(searchTerm) ||
+                            (location['Department'] && location['Department'].toLowerCase().includes(searchTerm))
+                        ) {
+                            results.push(location);
+                        }
+                    }
+                });
+            }
+        });
+
+        return results;
+    } catch (error) {
+        console.error('Error loading or searching location data:', error);
+        alert('Error loading location data: ' + error.message);
+        return [];
+    }
+}
