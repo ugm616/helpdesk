@@ -8,11 +8,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-<div class="background-image-container"></div>
-<div class="theme-switch-wrapper">
-    <button id="bg-toggle" class="theme-button"><span>🖼</span></button>
-    <button id="theme-toggle" class="theme-button"><span>☾</span></button>
-</div>
+    <div class="background-image-container"></div>
+    <div class="theme-switch-wrapper">
+        <button id="bg-toggle" class="theme-button"><span>🖼</span></button>
+        <button id="theme-toggle" class="theme-button"><span>☾</span></button>
+    </div>
     <div class="container">
         <div class="logo-container">
             <img src="helpdeskLogo.png" alt="Logo" class="responsive-logo">
@@ -38,14 +38,13 @@
                             <th>Department</th>
                         </tr>
                     </thead>
-                    <tbody id="resultsBody">
-                    </tbody>
+                    <tbody id="resultsBody"></tbody>
                 </table>
                 <div id="noResults" style="display: none;">
                     <p>No results for that search</p>
                 </div>
             </div>
-           <div id="popupModal" class="popup-modal">
+            <div id="popupModal" class="popup-modal">
                 <div class="popup-content">
                     <span class="close" id="closePopup">&times;</span>
                     <div class="tips-box">
