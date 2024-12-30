@@ -132,19 +132,34 @@ function parseCSV(text) {
 
 function displayResults(results) {
     const searchResults = document.getElementById('searchResults');
-    searchResults.innerHTML = '';
+    const resultsBody = document.getElementById('resultsBody');
+    const noResults = document.getElementById('noResults');
+
+    // Clear previous results
+    resultsBody.innerHTML = '';
 
     if (results.length === 0) {
-        searchResults.style.display = 'none';
+        searchResults.style.display = 'block';
+        noResults.style.display = 'block';
         return;
     }
 
-    results.forEach(result => {
-        const resultItem = document.createElement('div');
-        resultItem.className = 'result-item';
-        resultItem.textContent = JSON.stringify(result);
-        searchResults.appendChild(resultItem);
+    // Hide the no results message and show table
+    noResults.style.display = 'none';
+    searchResults.style.display = 'block';
+
+    // Add results to table
+    results.forEach(location => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td data-label="Room Number">${location['Room Num'] || '-'}</td>
+            <td data-label="Description">${location['Description'] || '-'}</td>
+            <td data-label="Floor">${location['Floor'] || '-'}</td>
+            <td data-label="Wing">${location['Wing'] || '-'}</td>
+            <td data-label="Department">${location['Department'] || '-'}</td>
+        `;
+        resultsBody.appendChild(row);
     });
 
-    searchResults.style.display = 'block';
+    console.log("Displayed results:", results);
 }
