@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
+    console.log("DOM fully loaded and parsed");
     const toggleIcon = document.getElementById('theme-toggle');
     const toggleIconSpan = toggleIcon ? toggleIcon.querySelector('span') : null;
     const modal = document.getElementById("popupModal");
@@ -65,6 +66,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     document.getElementById('searchResults').style.display = 'none';
                     return;
                 }
+                console.log("Searching for:", searchTerm);
                 const results = await searchLocations(searchTerm);
                 displayResults(results);
             }, 300);
@@ -79,6 +81,7 @@ async function searchLocations(searchTerm) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
         const textData = await response.text();
+        console.log("CSV data fetched:", textData);
         const data = parseCSV(textData);
 
         searchTerm = searchTerm.toLowerCase();
@@ -102,6 +105,7 @@ async function searchLocations(searchTerm) {
             }
         });
 
+        console.log("Search results:", results);
         return results;
     } catch (error) {
         console.error('Error loading or searching location data:', error);
@@ -113,13 +117,16 @@ async function searchLocations(searchTerm) {
 function parseCSV(text) {
     const rows = text.split('\n');
     const headers = rows[0].split(',');
+    console.log("CSV headers:", headers);
 
     return rows.slice(1).map(row => {
         const values = row.split(',');
-        return headers.reduce((obj, header, index) => {
+        const obj = headers.reduce((obj, header, index) => {
             obj[header.trim()] = values[index] ? values[index].trim() : '';
             return obj;
         }, {});
+        console.log("Parsed row:", obj);
+        return obj;
     });
 }
 
