@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function() {
         themeState = themeState === 'dark' ? 'light' : 'dark';
         localStorage.setItem('theme', themeState);
         applyClass();
-        if (toggleIconSpan) toggleIconSpan.textContent = themeState === 'dark' ? '🌙' : '☀️';
+        if (toggleIconSpan) toggleIconSpan.textContent = themeState === 'dark' ? '\ud83c\udf19' : '\u2600\ufe0f';
     }
 
     if (toggleIcon) {
@@ -74,11 +74,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
 async function searchLocations(searchTerm) {
     try {
-        const response = await fetch('locationData.json');
+        const response = await fetch('locations.csv');
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
-        const data = await response.json();
+        const textData = await response.text();
+        const data = parseCSV(textData);
 
         searchTerm = searchTerm.toLowerCase();
         const results = [];
@@ -107,4 +108,17 @@ async function searchLocations(searchTerm) {
         alert('Error loading location data: ' + error.message);
         return [];
     }
+}
+
+function parseCSV(text) {
+    const rows = text.split('\n');
+    const headers = rows[0].split(',');
+
+    return rows.slice(1).map(row => {
+        const values = row.split(',');
+        return headers.reduce((obj, header, index) => {
+            obj[header.trim()] = values[index].trim();
+            return obj;
+        }, {});
+    });
 }
