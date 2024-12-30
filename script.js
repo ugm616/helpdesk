@@ -117,8 +117,27 @@ function parseCSV(text) {
     return rows.slice(1).map(row => {
         const values = row.split(',');
         return headers.reduce((obj, header, index) => {
-            obj[header.trim()] = values[index].trim();
+            obj[header.trim()] = values[index] ? values[index].trim() : '';
             return obj;
         }, {});
     });
+}
+
+function displayResults(results) {
+    const searchResults = document.getElementById('searchResults');
+    searchResults.innerHTML = '';
+
+    if (results.length === 0) {
+        searchResults.style.display = 'none';
+        return;
+    }
+
+    results.forEach(result => {
+        const resultItem = document.createElement('div');
+        resultItem.className = 'result-item';
+        resultItem.textContent = JSON.stringify(result);
+        searchResults.appendChild(resultItem);
+    });
+
+    searchResults.style.display = 'block';
 }
